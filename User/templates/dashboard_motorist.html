@@ -1,0 +1,43 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motorist Dashboard</title>
+    <link rel="stylesheet" href="{% static 'dashboard_motorist.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="{% url 'dashboard_motorist' %}">
+            <img src="{% static 'frsc.jfif' %}" alt="Logo">
+        </a>
+        <div class="nav-links">
+            <a href="#">Profile</a>
+            <a href="https://frsc.gov.ng/offences-penalties-2/#" target="_blank" rel="noopener noreferrer">Offense List</a>
+            <a href="{% url 'home' %}">Logout</a>
+        </div>
+    </nav>
+
+
+     <!-- Main Section -->
+     <div class="main-content">
+        <h2>Welcome, {{ Motorist.first_name }} {{ Motorist.last_name }}</h2>
+        <div class="motorist-info">
+            <div>
+                <p>License Number</p>
+                <h3>{{ Motorist.license_no }}</h3>
+            </div>
+        </div>
+        
+         <!-- Additional Buttons -->
+         <div class="buttons">
+            <a href="#" class="btn">Ticket History</a>
+            <a href="#" class="btn">Dispute Ticket</a>
+        </div>
+    </div>
+</body>
+</html>
