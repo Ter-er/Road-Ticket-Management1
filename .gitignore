@@ -1,0 +1,46 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+media/          # User-uploaded files
+staticfiles/    # Collected static files
+*.log           # Log files
+*.pot           # Translation files
+*.pyc
+*.pyo
+
+# PostgreSQL specific
+*.sql           # SQL dump files (if generated)
+*.dump          # Database dumps
+
+# IDE/editor settings
+*.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+
+# Coverage reports
+.coverage
+coverage.xml
+*.cover
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+
+# Pytest
+.cache/
