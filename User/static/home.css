@@ -1,0 +1,79 @@
+
+/* Basic reset */
+body, h1, h2, nav, a, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #007bff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar img {
+    height: 40px;
+    margin-right: 20px;
+}
+
+.navbar h1 {
+    font-size: 18px;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 50px;
+    width: 300px;
+}
+
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #333;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
