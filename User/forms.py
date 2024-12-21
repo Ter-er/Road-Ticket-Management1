@@ -9,5 +9,5 @@ class MotoristSignupForm(forms.ModelForm):
 
 
 class MotoristLoginForm(forms.Form):
-    email = forms.EmailField()
-    license_no = forms.CharField(max_length=20)
+    username = forms.CharField(max_length=20)
+    password = forms.CharField(widget=forms.PasswordInput)
