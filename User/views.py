@@ -42,19 +42,7 @@ def motorist_login(request):
     else:
         form = MotoristLoginForm()
     return render(request, 'motorist_login.html', {'form': form})
-                
-                
-                
-                
-                
-    #             login(request, user)  # Use Django's login method
-    #             return redirect('dashboard_motorist')  # Redirect to the motorist dashboard
-    #         except Motorist.DoesNotExist:
-    #             form.add_error(None, 'Invalid username or license number')
-    # else:
-    #     form = MotoristLoginForm()
-    # return render(request, 'motorist_login.html', {'form': form})
-
+        
 
 def dashboard_motorist(request):
     return render(request, 'dashboard_motorist.html')
