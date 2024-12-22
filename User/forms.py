@@ -8,6 +8,6 @@ class MotoristSignupForm(forms.ModelForm):
         fields = ('first_name', 'last_name', 'email', 'license_no')
 
 
-class MotoristLoginForm(forms.Form):
+class LoginForm(forms.Form):
     username = forms.CharField(max_length=20)
     password = forms.CharField(widget=forms.PasswordInput)
