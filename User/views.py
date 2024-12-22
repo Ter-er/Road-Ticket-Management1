@@ -42,6 +42,26 @@ def login_user(request):
     else:
         form = LoginForm()
     return render(request, 'motorist_login.html', {'form': form})
+
+
+
+def official_login(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate (request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('dashboard')  # Redirect to the home page or dashboard
+            else:
+                form.add_error(None, "Invalid username or password.")
+        else:
+            print(form.errors)  # For debugging purposes
+    else:
+        form = LoginForm()
+    return render(request, 'official_login.html', {'form': form})
         
 
 def dashboard(request):
