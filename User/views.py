@@ -8,9 +8,13 @@ from django.contrib import messages # For Admin error message
 from django.utils.safestring import mark_safe # For Admin error message
 from django.urls import reverse  # For Admin error message
 
+
 # Create your views here.
+
 def home(request):
     return render(request, 'home.html')
+
+
 
 def motorist_signup(request):
     if request.method == 'POST':
@@ -24,6 +28,8 @@ def motorist_signup(request):
         form = MotoristSignupForm()
 
     return render(request, 'motorist_signup.html', {'form': form})
+
+
 
 # def motorist_login(request):
 #     return render(request, 'motorist_login.html')
@@ -97,33 +103,28 @@ def admin_login(request):
 
     return render(request, 'admin_login.html', {'form': form})
                 
-                
-                
-                
-                
-    #             login(request, user)
-    #             return redirect('dashboard_admin')  # Redirect to the home page or dashboard
-    #         else:
-    #             form.add_error(None, "Invalid username or password.")
-    #     else:
-    #         print(form.errors)  # For debugging purposes
-    # else:
-    #     form = LoginForm()
-    # return render(request, 'admin_login.html', {'form': form})
         
 
 def dashboard(request):
     return render(request, 'dashboard_motorist.html')
 
+
+
 def dashboard_official(request):
     return render(request, 'dashboard_official.html')
+
+
 
 def dashboard_admin(request):
     return render(request, 'dashboard_admin.html')
 
+
+
 def logout_user(request):
     logout(request)
     return redirect('home')
+
+
 
 def admin_login_redirect(request):
     return redirect(reverse('admin:login'))
