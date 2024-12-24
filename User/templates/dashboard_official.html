@@ -6,13 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motorist Dashboard</title>
+    <title>Official Dashboard</title>
     <link rel="stylesheet" href="{% static 'dashboard_motorist.css' %}">
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <a href="{% url 'dashboard' %}">
+        <a href="{% url 'dashboard_official' %}">
             <img src="{% static 'frsc.jfif' %}" alt="Logo">
         </a>
         <div class="nav-links">
@@ -28,19 +28,19 @@
         {% if user.is_authenticated %}
             <h2>Welcome, {{ user.first_name }} {{ user.last_name }}</h2>
         {% else %}
-            <h2>Welcome, Motorist</h2>
+            <h2>Welcome, Official</h2>
         {% endif %}
         <div class="motorist-info">
             <div>
-                <p>License Number</p>
+                <p>Official number</p>
                 <h3>{{ Motorist.license_no }}</h3>
             </div>
         </div>
         
          <!-- Additional Buttons -->
          <div class="buttons">
-            <a href="#" class="btn">Ticket History</a>
-            <a href="#" class="btn">Dispute Ticket</a>
+            <a href="#" class="btn">Generate Ticket </a>
+            <a href="#" class="btn"> Ticket History</a>
         </div>
     </div>
 </body>
