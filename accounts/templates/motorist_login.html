@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motorist Login</title>
-    <link rel="stylesheet" href="{% static 'motorist_login.css' %}">
+    <link rel="stylesheet" href="{% static 'motorist.css' %}">
 </head>
-<body>
+<body> 
     <nav class="navbar">
-        <a href="{% url 'home' %}"><img src="{% static 'frsc.jfif' %}" alt="Logo"></a>
+        <a href=""><img src="{% static 'frsc.jfif' %}" alt="Logo"></a>
         <h1>MOTORIST LOGIN</h1>
         <a href="{% url 'motorist_signup' %}" class="signup-link">Sign Up</a>
     </nav>
@@ -18,7 +18,7 @@
     <div class="container">
         <form method="POST">
             {% csrf_token %}
-            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
             <input type="text" name="license_no" placeholder="License No." required>
             <button type="submit" class="btn">Login</button>
 

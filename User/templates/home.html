@@ -20,7 +20,7 @@
     <div class="container">
         <h2>Select Your Role</h2>
         <div class="button-container">
-            <a href="" class="btn">Motorist</a>
+            <a href="{% url 'motorist_login' %}" class="btn">Motorist</a>
             <a href="{% url 'official_login' %}" class="btn">Official</a>
             <a href="{% url 'admin_login' %}" class="btn">Admin</a> <!-- Updated to match URL name -->
         </div>

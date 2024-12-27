@@ -16,18 +16,18 @@ def home(request):
 
 
 
-def motorist_signup(request):
-    if request.method == 'POST':
-        form = MotoristSignupForm(request.POST)
+# def motorist_signup(request):
+#     if request.method == 'POST':
+#         form = MotoristSignupForm(request.POST)
 
-        if form.is_valid():
-            form.save()
+#         if form.is_valid():
+#             form.save()
 
-            return redirect('motorist_login')
-    else:
-        form = MotoristSignupForm()
+#             return redirect('motorist_login')
+#     else:
+#         form = MotoristSignupForm()
 
-    return render(request, 'motorist_signup.html', {'form': form})
+#     return render(request, 'motorist_signup.html', {'form': form})
 
 
 
