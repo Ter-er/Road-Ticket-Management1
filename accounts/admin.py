@@ -19,7 +19,7 @@ class CustomUserAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('email', 'license_no')}),  # Use 'license_number' instead of password
         ('Personal info', {'fields': ('first_name', 'middle_name', 'last_name', 'phone_no', 'address', 'state')}),  # Add 'middle_name' field
-        ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
+        ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser')}),
         ('Important dates', {'fields': ('last_login', 'date_joined')}),
     )
 

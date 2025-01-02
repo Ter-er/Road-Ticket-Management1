@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'User',
     'accounts',
+    'vehicles',
+    'tickets',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +144,8 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend', # This is the default authentication backend
     'accounts.backends.EmailAndLicenseAuthenticationBackend', # This is the custom authentication backend
     ] 
+
+LOGIN_URL = 'motorist_login' # This is the URL where the user will be redirected to login
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db' # This is the session engine that will be used
+

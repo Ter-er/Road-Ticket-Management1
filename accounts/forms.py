@@ -6,3 +6,7 @@ class MotoristSignupForm(forms.ModelForm):
     class Meta:
         model = CustomUser
         fields = ('first_name', 'last_name', 'email', 'license_no')
+
+class MotoristLoginForm(forms.Form):
+    email = forms.EmailField(label='Email')
+    license_no = forms.CharField(label='License Number', max_length=12)
