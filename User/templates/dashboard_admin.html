@@ -27,16 +27,47 @@
      <div class="main-content">
         {% if user.is_authenticated %}
             <h2>Welcome, {{ user.first_name }} {{ user.last_name }}</h2>
-        {% else %}
-            <h2>Welcome, Admin</h2>
-        {% endif %}
+        
         <div class="motorist-info">
             <div>
                 <p>Admin</p>
-                <h3>{{ Motorist.license_no }}</h3>
+                <h3>{{ user.username }}</h3>
             </div>
         </div>
-        
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Ticket Number</th>
+                    <th>Official</th>
+                    <th>Offence</th>
+                    <th>Amount</th>
+                    <th>Issue Date</th>
+                    <th>Due Date</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ticket in tickets %}
+                <tr>
+                    <td>{{ ticket.ticket_no }}</td>
+                    <td>{{ ticket.official }}</td>
+                    <td>{{ offence.ticket_infringement }}</td>
+                    <td>${{ offence.penalty }}</td>
+                    <td>{{ ticket.issue_date }}</td>
+                    <td>{{ ticket.due_date }}</td>
+                    <td>Nil</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7">No tickets available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <h2>Welcome, Admin</h2>
+        {% endif %}
          <!-- Additional Buttons -->
          <div class="buttons">
             <a href="#" class="btn">Admin</a>
