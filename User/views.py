@@ -2,11 +2,12 @@ from django.contrib.auth import authenticate, login, logout
 #from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from .models import Motorist 
+from .models import Motorist
 from .forms import MotoristSignupForm, LoginForm
 from django.contrib import messages # For Admin error message
 from django.utils.safestring import mark_safe # For Admin error message
 from django.urls import reverse  # For Admin error message
+from tickets.models import Ticket
 
 
 # Create your views here.
@@ -116,7 +117,8 @@ def dashboard_official(request):
 
 
 def dashboard_admin(request):
-    return render(request, 'dashboard_admin.html')
+    tickets = Ticket.objects.select_related('offence').filter(motorist=request.user)
+    return render(request, 'dashboard_admin.html', {'tickets': tickets})
 
 
 

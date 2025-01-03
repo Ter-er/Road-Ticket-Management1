@@ -31,7 +31,7 @@
         <div class="motorist-info">
             <div>
                 <p>Admin</p>
-                <h3>{{ user.username }}</h3>
+                <h3>Pending Tickets</h3>
             </div>
         </div>
 
@@ -51,9 +51,9 @@
                 {% for ticket in tickets %}
                 <tr>
                     <td>{{ ticket.ticket_no }}</td>
-                    <td>{{ ticket.official }}</td>
-                    <td>{{ offence.ticket_infringement }}</td>
-                    <td>${{ offence.penalty }}</td>
+                    <td>{{ ticket.official.first_name|slice:":1" }}. {{ ticket.official.last_name }}</td>
+                    <td>{{ ticket.offence.ticket_infringement }}</td>
+                    <td>N{{ ticket.offence.penalty }}</td>
                     <td>{{ ticket.issue_date }}</td>
                     <td>{{ ticket.due_date }}</td>
                     <td>Nil</td>

@@ -1,3 +1,5 @@
 from django.shortcuts import render
+from .models import Ticket
 
-# Create your views here.
+def get_user_tickets(User):
+    return Ticket.objects.select_related('offence').filter(user=User)
