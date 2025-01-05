@@ -18,8 +18,8 @@
     <div class="container">
         <form method="POST">
             {% csrf_token %}
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="text" name="license_no" placeholder="License No." required>
+            <input type="email" name="email" placeholder="License No." required>
+            <input type="text" name="license_no" placeholder="Password" required>
             <button type="submit" class="btn">Login</button>
 
             {% if form.non_field_errors %}

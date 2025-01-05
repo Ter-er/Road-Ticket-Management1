@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motorist Sign Up</title>
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{% url 'home' %}"><img src="{% static 'frsc.jfif' %}" alt="Logo"></a>
+        <h1>MOTORIST SIGN UP</h1>
+    </nav>
+    
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="License No." required>
+            <input type="text" name="first_name" placeholder="First Name" required>
+            <input type="text" name="last_name" placeholder="Last Name" required>
+            <input type="password" name="password1" placeholder="Password" required>
+            <div style="color: black; font-size: 12px; margin-top: 1px; font-style: italic;">
+                <p>Your password must contain at least 8 characters.</p>
+                <p>Your password cannot be a commonly used password.</p>
+                <p>Your password cannot be entirely numeric.</p>
+                <p>Your password cannot be the same as your other personal information.</p>
+            </div>
+            <input type="password" name="password2" placeholder="Re-enter Password" required>
+            <button type="submit" class="btn">Sign Up</button>
+
+            
+            {% if form.password1.errors %}
+                <div style="color: red; font-size: 14px; margin-top: 10px;">
+                    {% for error in form.password1.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if form.password2.errors %}
+                <div style="color: red; font-size: 14px; margin-top: 10px;">
+                    {% for error in form.password2.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+        </form>
+        <p>Already have an account? <a href="" class="signup-link">Login</a></p>
+    </div>
+</body>
+</html>

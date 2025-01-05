@@ -1,0 +1,68 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Tickets</title>
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="{% url 'dashboard-official' %}">
+            <img src="{% static 'frsc.jfif' %}" alt="Logo">
+        </a>
+        <div class="nav-links">
+            <a href="https://frsc.gov.ng/staffonly/" target="_blank" rel="noopener noreferrer">PROFILE</a>
+            <a href="https://frsc.gov.ng/offences-penalties-2/#" target="_blank" rel="noopener noreferrer">OFFENCE LIST</a>
+            <a href="{% url 'logout_user' %}" class="log">LOGOUT</a>
+        </div>
+    </nav>
+
+
+     <!-- Main Section -->
+     <div class="main-content">
+        {% if user.is_authenticated %}
+            <!-- <h2>{{ user.first_name }} {{ user.last_name }}</h2> -->
+
+            <h2>Create a New Ticket</h2>
+            <hr>
+            {% if messages %}
+                <div>
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
+                <div class="field">
+                    <p>Motorist</p>
+                    {{ form.motorist }}
+                </div>
+                <div class="field">
+                    <p>Official</p>
+                    {{ form.official }}
+                </div>
+                <div class="field">
+                    <p>Vehicle</p>
+                    {{ form.vehicle }}
+                </div>
+                <div class="field">
+                    <p>Offence</p>
+                    {{ form.offence }}
+                </div>
+                <button type="submit">Create Ticket</button>
+            </form>
+
+
+        {% else %}
+            <h2>Welcome, Official</h2>
+        {% endif %}
+     </div>
+</body>
+</html>

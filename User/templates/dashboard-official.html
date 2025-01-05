@@ -1,0 +1,79 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Dashboard</title>
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="{% url 'dashboard-official' %}">
+            <img src="{% static 'frsc.jfif' %}" alt="Logo">
+        </a>
+        <div class="nav-links">
+            <a href="https://frsc.gov.ng/staffonly/" target="_blank" rel="noopener noreferrer">PROFILE</a>
+            <a href="https://frsc.gov.ng/offences-penalties-2/#" target="_blank" rel="noopener noreferrer">OFFENCE LIST</a>
+            <a href="{% url 'logout_user' %}" class="log">LOGOUT</a>
+        </div>
+    </nav>
+
+
+     <!-- Main Section -->
+     <div class="main-content">
+        {% if user.is_authenticated %}
+            <h2>Welcome, {{ user.first_name }} {{ user.last_name }}</h2>
+
+             <!-- Additional Buttons -->
+            <div class="buttons">
+                <a href="{% url 'create-ticket' %}" class="btn">GENERATE TICKET </a>
+                <a href="#" class="btn"> APPEALED TICKETS</a>
+                <a href="#" class="btn"> TICKET HISTORY</a>
+            </div>
+            <hr>
+            <h3>Active Tickets</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ticket Number</th>
+                        <th>Motorist</th>
+                        <th>Offence</th>
+                        <th>Amount</th>
+                        <th>Issue Date</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ticket in tickets %}
+                    <tr>
+                        <td><a href = "https://login.remita.net/remita/onepage/FRSC/biller.spa" target="_blank" rel="noopener noreferrer">{{ ticket.ticket_no }}</a></td>
+                        <td>{{ ticket.motorist.username }}</td>
+                        <td>{{ ticket.offence.ticket_infringement }}</td>
+                        <td>N{{ ticket.offence.penalty }}</td>
+                        <td>{{ ticket.issue_date }}</td>
+                        <td>{{ ticket.due_date }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6">No tickets available.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <h2>Welcome, Official</h2>
+        {% endif %}
+        <!-- <div class="motorist-info">
+            <div>
+                <p>Official number</p>
+                <h3>{{ Motorist.license_no }}</h3>
+            </div>
+        </div> -->
+    </div>
+</body>
+</html>

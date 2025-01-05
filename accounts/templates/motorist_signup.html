@@ -17,8 +17,8 @@
     <div class="container">
         <form method="POST">
             {% csrf_token %}
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="text" name="license_no" placeholder="License Number" required>
+            <input type="email" name="email" placeholder="License No." required>
+            <input type="text" name="license_no" placeholder="Password" required>
             <input type="text" name="first_name" placeholder="First Name" required>
             <input type="text" name="last_name" placeholder="Last Name" required>
             <button type="submit" class="btn">Sign Up</button>
