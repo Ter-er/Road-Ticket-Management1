@@ -121,6 +121,9 @@ def dashboard_admin(request):
     tickets = Ticket.objects.select_related('offence').filter(motorist=request.user)
     return render(request, 'dashboard-admin.html', {'tickets': tickets})
 
+def motorist_profile(request):
+    return render(request, 'profile.html')
+
 
 # Logout view
 def logout_user(request):

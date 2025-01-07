@@ -16,7 +16,7 @@
             <img src="{% static 'frsc.jfif' %}" alt="Logo">
         </a>
         <div class="nav-links">
-            <a href="#">PROFILE</a>
+            <a href="{% url 'profile' %}">PROFILE</a>
             <a href="https://frsc.gov.ng/offences-penalties-2/#" target="_blank" rel="noopener noreferrer">OFFENCE LIST</a>
             <a href="{% url 'logout_user' %}" class="log">LOGOUT</a>
         </div>
