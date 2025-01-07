@@ -16,7 +16,7 @@
             <img src="{% static 'frsc.jfif' %}" alt="Logo">
         </a>
         <div class="nav-links">
-            <a href="#">DASHBOARD</a>
+            <a href="{% url 'dashboard-motorist' %}">DASHBOARD</a>
             <a href="https://frsc.gov.ng/offences-penalties-2/#" target="_blank" rel="noopener noreferrer">OFFENCE LIST</a>
             <a href="{% url 'logout_user' %}" class="log">LOGOUT</a>
         </div>
@@ -26,9 +26,52 @@
      <!-- Main Section -->
      <div class="main-content">
         {% if user.is_authenticated %}
-        <h2>Profile</h2>
+        <h2>{{ user.first_name }} {{user.last_name }}'s Profile</h2>
+        <div class="buttons">
+            <h3 class="btn">License Number: {{ user.username }}</h3>
+        </div>
+        <hr>
+
+        {% if messages %}
+            <div>
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="field">
+                <p>First Name</p>
+                {{ form.first_name }}
+            </div>
+
+            <div class="field">
+                <p>Last Name</p>
+                {{ form.last_name }}
+            </div>
+
+            <div class="field">
+                <p>Email</p>
+                {{ form.email }}
+            </div>
+
+            <div class="field">
+                <p>Last login</p>
+                <input type="text" value="{{ last_login }}" readonly style="background-color: #f0f0f0; color: #888; border: 1px solid #ccc;" />
+            </div>
+
+            <div class="field">
+                <p>Date joined</p>
+                <input type="text" value="{{ date_joined }}" readonly style="background-color: #f0f0f0; color: #888; border: 1px solid #ccc;" />
+            </div>
+            <button type="submit">Save Changes</button>
+        </form>
+
         {% else %}
-            <h2>Welcome, Motorist</h2>
+            <h2>Profile Motorist</h2>
         {% endif %}
     </div>
 </body>

@@ -1,8 +1,8 @@
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.forms import CustomUserChangeForm
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from .forms import MotoristSignupForm, LoginForm
+from .forms import MotoristSignupForm, LoginForm, CustomUserChangeForm
 from django.contrib import messages # For Admin error message
 from django.utils.safestring import mark_safe # For Admin error message
 from django.urls import reverse  # For Admin error message
@@ -121,8 +121,32 @@ def dashboard_admin(request):
     tickets = Ticket.objects.select_related('offence').filter(motorist=request.user)
     return render(request, 'dashboard-admin.html', {'tickets': tickets})
 
+
+
 def motorist_profile(request):
-    return render(request, 'profile.html')
+    motorist = request.user # Get the current user 
+
+    if request.method == 'POST':
+        form = CustomUserChangeForm(request.POST, request.FILES, instance=request.user)
+        if form.is_valid():
+            form.save()
+            print('Profile updated successfully!')
+            return redirect('profile')
+        else:
+            messages.error(request, 'Please correct the errors below.')
+            print(form.errors)
+
+    else:
+        form = CustomUserChangeForm(instance=request.user)
+
+    context = {
+        'form': form,
+        'date_joined': motorist.date_joined,
+        'last_login': motorist.last_login,
+    }
+
+    return render(request, 'profile.html', context)
+    
 
 
 # Logout view

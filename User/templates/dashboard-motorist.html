@@ -27,13 +27,11 @@
      <div class="main-content">
         {% if user.is_authenticated %}
             <h2>Welcome, {{ user.first_name }} {{ user.last_name }}</h2>
-            <hr>
-            <div class="motorist-info">
-                <div>
-                    <p>License Number</p>
-                    <h3>{{ user.username }}</h3>
-                </div>
+            <!-- <div class="motorist-info"> -->
+            <div class="buttons">
+                <h3 class="btn">License Number: {{ user.username }}</h3>
             </div>
+            <hr>
             
             <div class="buttons">
                 <a href="#" class="btn">TICKET HISTORY</a>
