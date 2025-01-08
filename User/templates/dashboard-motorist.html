@@ -29,13 +29,13 @@
             <h2>Welcome, {{ user.first_name }} {{ user.last_name }}</h2>
             <!-- <div class="motorist-info"> -->
             <div class="buttons">
-                <h3 class="btn">License Number: {{ user.username }}</h3>
+                <h3 class="btn1">License Number: {{ user.username }}</h3>
             </div>
             <hr>
             
             <div class="buttons">
                 <a href="#" class="btn">TICKET HISTORY</a>
-                <a href="#" class="btn"> APPEALED TICKETS</a>
+                <a href="#" class="btn"> DISPUTE TICKETS</a>
                 <!-- <a href="#" class="btn">DISPUTE TICKET</a> -->
             </div>
             <hr>
@@ -71,9 +71,15 @@
                     {% endfor %}
             </tbody>
         </table>
+
+
         {% else %}
             <h2>Welcome, Motorist</h2>
         {% endif %}
     </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Road Ticket Management. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>

@@ -1,9 +1,13 @@
-/* Base styles for both login and signup pages */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #1E73BE;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  /* Ensures footer stays at the bottom */
+    height: 100vh;  /* Full viewport height */
 }
 
 .navbar {
@@ -12,6 +16,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;  /* Ensure navbar stretches across */
 }
 
 .navbar img {
@@ -26,6 +31,7 @@ h1 {
     color: #333;
 }
 
+/* Container styling for login/signup */
 .container {
     max-width: 400px;
     margin: 50px auto;
@@ -33,15 +39,17 @@ h1 {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(30, 115, 190, 0.1);
+    /* flex-grow: 1;  Ensures container stretches */
 }
 
+/* Button styles */
 .btn {
     display: block;
     margin: 15px 0;
     padding: 10px;
     text-align: center;
     color: white;
-    background-color: #1E73BE; /* Change as needed */
+    background-color: #1E73BE;
     border: none;
     border-radius: 5px;
     text-decoration: none;
@@ -51,6 +59,7 @@ h1 {
     background-color: #0056b3; /* Darker shade on hover */
 }
 
+/* Input fields */
 input[type="email"],
 input[type="password"],
 input[type="text"] {
@@ -61,11 +70,30 @@ input[type="text"] {
     border-radius: 5px;
 }
 
+/* Signup text styling */
 .signup-text {
     color: #333; /* Normal text color */
+    font-size: 14px;
+    text-align: center;
 }
 
+/* Signup link styling */
 .signup-link {
     text-decoration: underline; /* Only the link is underlined */
     color: #1E73BE; /* Match the theme color */
+    text-align: center;
+}
+
+/* Footer styles */
+.footer {
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer p {
+    font-size: 14px;
+    color: #333;
 }

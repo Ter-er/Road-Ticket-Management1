@@ -4,6 +4,11 @@ body {
     background-color: white;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  /* This ensures the footer stays at the bottom */
+    height: 100vh;  /* Makes sure the body takes the full height of the viewport */
+    /* width: 100%; */
 }
 
 .navbar {
@@ -27,7 +32,6 @@ body {
 
 .nav-links a:hover {
     color: red;
-    text-decoration: underline;
 }
 
 .nav-links .log {
@@ -41,23 +45,35 @@ body {
 }
 
 .nav-links .log:hover {
-    color: white;
+    background-color: white;
+    color: red;
 }
 
 .main-content {
-    padding: 20px;
+    padding: 10px;
     max-width: 1200px;
     margin: 0 auto;
+    margin-top: 1px;
+    width: 90%;
 }
 
 h2, h3 {
-    color: #1E73BE;
+    color: #001C4C;
+    margin-bottom: 3px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin-top: 0;
 }
 
 .motorist-info {
     display: flex;
     justify-content: space-between;
-    margin: 20px 0;
+    margin: 5px 0;
 }
 
 .motorist-info div {
@@ -74,6 +90,15 @@ h2, h3 {
     color: #1E73BE;
 }
 
+.btn1 {
+    background-color: #001C4C;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
 
 .btn {
     background-color: #1E73BE;
@@ -86,7 +111,7 @@ h2, h3 {
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #001C4C;
 }
 
 .buttons {
@@ -187,8 +212,15 @@ form .field {
     margin-bottom: 15px;
 }
 
-/* h1 {
+.footer {
+    width: 100%;
+    background-color: #1E73BE;
+    padding: 10px;
     text-align: center;
-    margin-top: 20px;
-    color: #333;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer p {
+    font-size: 14px;
+    color: white;
 }
