@@ -146,6 +146,10 @@ def motorist_profile(request):
     }
 
     return render(request, 'profile.html', context)
+
+
+def ticket_history(request):
+    return render (request, 'ticket-history.html')
     
 
 

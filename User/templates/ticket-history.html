@@ -22,23 +22,15 @@
         </div>
     </nav>
 
-
-     <!-- Main Section -->
     <div class="main-content">
         {% if user.is_authenticated %}
-            <h2>Welcome, {{ user.first_name }} {{ user.last_name }}</h2>
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
             <!-- <div class="motorist-info"> -->
             <div class="buttons">
                 <h3 class="btn1">License Number: {{ user.username }}</h3>
             </div>
             <hr>
-            
-            <div class="buttons">
-                <a href="{% url 'ticket-history' %}" class="btn">TICKET HISTORY</a>
-                <a href="#" class="btn"> DISPUTE TICKETS</a>
-                <!-- <a href="#" class="btn">DISPUTE TICKET</a> -->
-            </div>
-            <hr>
+
             <h3>Active Tickets</h3>
 
             <table>

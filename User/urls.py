@@ -16,6 +16,7 @@ urlpatterns = [
     path('dashboard-official/', views.dashboard_official, name='dashboard-official'),
     path('dashboard-admin/', views.dashboard_admin, name='dashboard-admin'),
     path('dashboard-motorist/profile', views.motorist_profile, name='profile'),
+    path('dashboard-motorist/ticket-history', views.ticket_history, name='ticket-history'),
     path('logout_user', views.logout_user, name='logout_user'),
     path('admin_site/', views.admin_login_redirect, name='admin_login_redirect'),    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

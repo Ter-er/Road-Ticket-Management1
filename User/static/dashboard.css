@@ -53,8 +53,8 @@ body {
     padding: 10px;
     max-width: 1200px;
     margin: 0 auto;
-    margin-top: 1px;
     width: 90%;
+    flex-grow: 1;
 }
 
 h2, h3 {
