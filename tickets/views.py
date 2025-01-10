@@ -24,7 +24,7 @@ def create_ticket(request):
 
 
     else:
-        form = TicketForm()
+        form = TicketForm(user=request.user)
 
     return render(request, 'create-ticket.html', {'form': form})
     

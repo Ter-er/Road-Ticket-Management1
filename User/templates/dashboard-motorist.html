@@ -34,8 +34,10 @@
             <hr>
             
             <div class="buttons">
-                <a href="{% url 'ticket-history' %}" class="btn">TICKET HISTORY</a>
+                <a href="{% url 'm_ticket-history' %}" class="btn">TICKET HISTORY</a>
                 <a href="#" class="btn"> DISPUTE TICKETS</a>
+                <input type="text" name="RRR_no" placeholder="RRR Number" style="border-radius: 5px;">
+                <button type="submit" class="btn" style="border-color: #1E73BE;">VERIFY PAYMENT</button>
                 <!-- <a href="#" class="btn">DISPUTE TICKET</a> -->
             </div>
             <hr>
@@ -62,7 +64,7 @@
                         <td>N{{ ticket.offence.penalty }}</td>
                         <td>{{ ticket.issue_date }}</td>
                         <td>{{ ticket.due_date }}</td>
-                        <td>Nil</td>
+                        <td>{{ ticket.offence.points }}</td>
                     </tr>
                     {% empty %}
                     <tr>

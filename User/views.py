@@ -148,9 +148,13 @@ def motorist_profile(request):
     return render(request, 'profile.html', context)
 
 
-def ticket_history(request):
-    return render (request, 'ticket-history.html')
+def m_ticket_history(request):
+    tickets = Ticket.objects.select_related('offence').filter(motorist=request.user)
+    return render (request, 'm_ticket-history.html', {'tickets': tickets})
     
+def o_ticket_history(request):
+    tickets = Ticket.objects.select_related('offence').filter(official=request.user)
+    return render (request, 'o_ticket-history.html', {'tickets': tickets})
 
 
 # Logout view

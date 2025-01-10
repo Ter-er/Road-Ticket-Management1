@@ -16,9 +16,9 @@
             <img src="{% static 'frsc.jfif' %}" alt="Logo">
         </a>
         <div class="nav-links">
-            <a href="{% url 'admin_login_redirect' %}">Admin site</a>
-            <a href="https://frsc.gov.ng/offences-penalties-2/#" target="_blank" rel="noopener noreferrer">Offense List</a>
-            <a href="{% url 'logout_user' %}" class="log">Logout</a>
+            <a href="{% url 'admin_login_redirect' %}">ADMIN SITE</a>
+            <a href="https://frsc.gov.ng/offences-penalties-2/#" target="_blank" rel="noopener noreferrer">OFFENCE LIST</a>
+            <a href="{% url 'logout_user' %}" class="log">LOGOUT</a>
         </div>
     </nav>
 
@@ -27,14 +27,12 @@
      <div class="main-content">
         {% if user.is_authenticated %}
             <h2>Welcome, {{ user.first_name }} {{ user.last_name }}</h2>
-        
-        <div class="motorist-info">
-            <div>
-                <p>Admin</p>
-                <h3>Pending Tickets</h3>
-            </div>
+        <hr>
+        <div class="buttons">
+            <a href="{% url 'dashboard-motorist' %}" class="btn">MOTORIST DASHBOARD</a>
+            <a href="{% url 'dashboard-official' %}" class="btn">OFFICIAL DASHBOARD</a>
         </div>
-
+        <hr>
         <table>
             <thead>
                 <tr>
@@ -69,10 +67,7 @@
             <h2>Welcome, Admin</h2>
         {% endif %}
          <!-- Additional Buttons -->
-         <div class="buttons">
-            <a href="#" class="btn">Admin</a>
-            <a href="#" class="btn">Admin 1</a>
-        </div>
+         
     </div>
 
     <footer class="footer">

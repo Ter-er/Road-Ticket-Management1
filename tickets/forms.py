@@ -17,6 +17,14 @@ class TicketForm(forms.ModelForm):
     # You can also handle the ticket_no as a hidden field to make it non-editable
     ticket_no = forms.CharField(widget=forms.HiddenInput(), required=False)
 
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)  # Get the logged-in user from the view
+        super().__init__(*args, **kwargs)
+        
+        if user:
+            # Set the initial value of the 'official' field to the logged-in user
+            self.fields['official'].initial = user
+
     # You can also add custom validation if required.
     def clean_motorist(self):
         motorist = self.cleaned_data.get('motorist')
