@@ -62,8 +62,19 @@ def official_login(request):
             password = form.cleaned_data['password']
             user = authenticate (request, username=username, password=password)
             if user is not None:
-                login(request, user)
-                return redirect('dashboard-official')  # Redirect to the home page or dashboard
+                if user.is_staff:  # Check if the user is an official
+                    login(request, user)
+                    return redirect('dashboard-official')  # Redirect to the home page or dashboard
+                
+                else:
+                    motorist_login_url = reverse('motorist-login')
+                    # If the user is not an admin, show an error message and redirect to motorist login
+                    message = mark_safe(
+                        f'You are not an Official. Please log in as an Motorist. <a href="{motorist_login_url}">Click here</a> to go to the motorist login page.'
+                    )
+                    messages.error(request, message)
+                    # return redirect('motorist_login')  # Redirect to the official login page
+
             else:
                 form.add_error(None, "Invalid username or password.")
         else:
@@ -85,15 +96,25 @@ def admin_login(request):
                 if user.is_superuser:  # Check if the user is an admin
                     login(request, user)
                     return redirect('dashboard-admin')  # Redirect to the admin dashboard
-                else:
-
+                
+                elif user.is_staff:  # Check if the user is an official
                     official_login_url = reverse('official-login')
                     # If the user is not an admin, show an error message and redirect to official login
                     message = mark_safe(
-                        f'You are not an admin. Please log in as an official. <a href="{official_login_url}">Click here</a> to go to the official login page.'
+                        f'You are not an admin. Please log in as an Official. <a href="{official_login_url}">Click here</a> to go to the official login page.'
                     )
                     messages.error(request, message)
                     # return redirect('official_login')  # Redirect to the official login page
+                
+                else:
+
+                    motorist_login_url = reverse('motorist-login')
+                    # If the user is not an admin, show an error message and redirect to motorist login
+                    message = mark_safe(
+                        f'You are not an admin. Please log in as an Motorist. <a href="{motorist_login_url}">Click here</a> to go to the motorist login page.'
+                    )
+                    messages.error(request, message)
+                    # return redirect('motorist_login')  # Redirect to the official login page
             else:
                 form.add_error(None, "Invalid username or password.")
         else:
