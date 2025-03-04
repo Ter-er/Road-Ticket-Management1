@@ -26,7 +26,7 @@
      <!-- Main Section -->
     <div class="main-content">
         {% if user.is_authenticated %}
-            <h2>Welcome, {{ user.first_name|capitalize }} {{ user.last_name|capitalize }}</h2>
+            <h2>Welcome, {{ user.first_name }} {{ user.last_name }}</h2>
             <!-- <div class="motorist-info"> -->
             <div class="buttons">
                 <h3 class="btn1">License Number: {{ user.username|upper }}</h3>

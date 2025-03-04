@@ -42,7 +42,7 @@ def motorist_login(request):
             password = form.cleaned_data['password']
             user = authenticate(request, username=username, password=password)
             if user is not None:
-                if user.is_active and not user.is_staff and user.is_superuser:
+                if user.is_active and not user.is_staff and not user.is_superuser:
                     login(request, user)
                     return redirect('dashboard-motorist')  # Redirect to the home page or dashboard
                 
@@ -137,13 +137,13 @@ def admin_login(request):
         
 # Motorist dashboard view
 def dashboard_motorist(request):
-    tickets = Ticket.objects.select_related('offence').filter(motorist=request.user)
+    tickets = Ticket.objects.select_related('offence').filter(motorist=request.user).order_by('-issue_date')
     return render(request, 'dashboard-motorist.html', {'tickets': tickets})
 
 
 # Official dashboard view
 def dashboard_official(request):
-    tickets = Ticket.objects.select_related('offence').filter(official=request.user)
+    tickets = Ticket.objects.select_related('offence').filter(official=request.user).order_by('-issue_date')
     return render(request, 'dashboard-official.html', {'tickets': tickets})
 
 
