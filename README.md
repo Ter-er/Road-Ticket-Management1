@@ -1,4 +1,4 @@
-# Road-Ticket-Management (This README file is subject to continous change as i learn and document my progress)
+# Road-Ticket-Management (This README file is subject to continuous change as I learn and document my progress.)
 
 This is unofficially the second version and officially the first version of the Road Ticketing Management Project.
 This version does not have the issues I encountered in Road-Ticket-Management, and I have successfully integrated all the features I mentioned in the README.md file of Road-Ticket-Management that V1 was meant to have.
